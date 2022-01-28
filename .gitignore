@@ -1,0 +1,7 @@
+__pycache__
+.pytest_cache
+.vscode
+environment.py
+nohup.out
+notes.txt
+status.json

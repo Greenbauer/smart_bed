@@ -1,0 +1,10 @@
+[MASTER]
+
+min-public-methods=1
+max-public-methods=30
+
+disable=
+    missing-docstring,
+    too-many-instance-attributes,
+    bad-continuation,
+    no-member
