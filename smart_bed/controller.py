@@ -149,7 +149,7 @@ def rocker_fun_update(state, direction, volume_change=0):
 
     # exit fun mode
     elif state == 'hold' and direction == 'down':
-        command = 'scene on'
+        command = 'all off'
         save({'is_fun_mode': False, 'volume_change': 0})
         post_status()
 
@@ -157,5 +157,7 @@ def rocker_fun_update(state, direction, volume_change=0):
 
     if command == 'scene on':
         transition_scene(command, 5)
+        # lamps_update()
 
-        lamps_update()
+    elif command is not None:
+        set_scene(command)

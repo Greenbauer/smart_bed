@@ -22,8 +22,9 @@ class Rocker:
     def _get_status(self):
         status = get()
 
-        self.is_fun_mode = status['is_fun_mode']
-        self.volume_change = status['volume_change']
+        if status:
+            self.is_fun_mode = status['is_fun_mode']
+            self.volume_change = status['volume_change']
 
     def _handle_fun(self, state, direction):
         volume_change = self.volume_change

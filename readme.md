@@ -52,7 +52,7 @@ os.environ['HOME_AUTOMATION_URL'] = ''
 
 to start the app run:
 ```
-nohup python3 -m smart_bed &
+nohup python3 smart_bed &
 ```
 
 You can now open `status.json` and be able to see all the data that the bed tracks:

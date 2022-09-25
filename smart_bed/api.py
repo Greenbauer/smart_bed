@@ -25,8 +25,8 @@ def _run_api():
 
         app.run(host=IP, port=API_PORT)
 
-    except Exception as e:
-        print('ERROR: Running api', e)
+    except Exception as error:
+        print('ERROR: Running api', error)
         _run_api()
 
 
@@ -42,4 +42,3 @@ def post_status():
         # if request fails, try again
         time.sleep(30)
         post_status()
-        

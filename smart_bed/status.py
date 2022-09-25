@@ -3,8 +3,15 @@ Save and load bed status information
 '''
 
 import json
+import os
+import sys
 
 FILE_NAME = 'status.json'
+DIR_PATH = os.path.dirname(sys.modules['__main__'].__file__)
+
+if len(DIR_PATH) > 0:
+    FILE_NAME = DIR_PATH + '/' + FILE_NAME
+
 
 # open status file
 def get():
@@ -14,8 +21,8 @@ def get():
             file.close()
 
             return data
-    except Exception as e:
-        print('ERROR: Getting from ' + FILE_NAME, e)
+    except Exception as error:
+        print('ERROR: Getting from ' + FILE_NAME, error)
 
 
 # save/update status file
@@ -30,5 +37,5 @@ def save(updated_data):
             json.dump(status, file)
             file.close()
 
-    except Exception as e:
-        print('ERROR: Saving status to ' + FILE_NAME, e)
+    except Exception as error:
+        print('ERROR: Saving status to ' + FILE_NAME, error)

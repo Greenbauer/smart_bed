@@ -113,6 +113,15 @@ def _select_states(command):
             STATE.top_right()
         ]
 
+    elif command == 'all off':
+        states = [
+            STATE.bottom_left('off'),
+            STATE.bottom_right('off'),
+            STATE.middle('off'),
+            STATE.top_left('off'),
+            STATE.top_right('off')
+        ]
+
     return states
 
 
