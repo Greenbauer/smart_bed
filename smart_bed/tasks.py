@@ -6,7 +6,7 @@ import time
 import threading
 import schedule
 from smart_bed.context import update_context
-from smart_bed.controller import rocker_lamp_update, scene_update
+from smart_bed.controller import rocker_lamp_update, rocker_fun_update, scene_update
 from smart_bed.status import get
 from smart_bed.util import is_time_expired
 
@@ -21,6 +21,14 @@ def _turn_off_lamps(current_status):
 
     if is_time_expired(time_lamp_on_right, hours=1) is True:
         rocker_lamp_update('click end', 'down', 'right')
+
+
+# turn off fun mode if it has been on a while
+def _turn_off_fun_mode(current_status):
+    time_fun_mode_on = current_status['time_fun_mode_on']
+
+    if is_time_expired(time_fun_mode_on, hours=1) is True:
+        rocker_fun_update('hold', 'down')
 
 
 # automatically set the bed scene
@@ -40,6 +48,7 @@ def _run_tasks():
 
         # things to check and change
         _turn_off_lamps(current_status)
+        _turn_off_fun_mode(current_status)
         time.sleep(3)
 
         _set_scene(current_status)
