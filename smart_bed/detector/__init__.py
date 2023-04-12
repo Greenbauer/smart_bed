@@ -65,6 +65,9 @@ class Detector:
         self.load_cell.power_down()
         self.load_cell.power_up()
 
+        if weight > self.max_weight_threshold * 1.3:
+            weight = self.max_weight_threshold * 1.3
+
         self.weight = weight
         self._tare(prev_weight, weight)
 

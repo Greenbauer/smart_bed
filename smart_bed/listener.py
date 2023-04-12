@@ -15,13 +15,13 @@ DETECTOR_LEFT = Detector(
     int(os.getenv('LOAD_CELL_LEFT_DT')),
     int(os.getenv('LOAD_CELL_LEFT_SCK')),
     'left',
-    [90, 50]
+    [90, 60]
 )
 DETECTOR_RIGHT = Detector(
     int(os.getenv('LOAD_CELL_RIGHT_DT')),
     int(os.getenv('LOAD_CELL_RIGHT_SCK')),
     'right',
-    [90, 55]
+    [90, 65]
 )
 
 ROCKER_LEFT = Rocker(
